@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .container { display: flex; height: 100vh; }
+    .sidebar {
+      width: 170px;
+      background: #f2f2f2;
+      padding: 16px 8px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .main {
+      flex: 1;
+      padding: 18px 24px;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .search-bar {
+      position: absolute;
+      top: 18px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+    }
+    .search-bar input {
+      padding: 6px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+    }
+    .search-bar button {
+      margin-left: 5px;
+      padding: 6px 12px;
+      border: none;
+      background: #1976d2;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .weather-header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 12px;
+    }
+    .weather-header h2 { margin: 0; font-size: 1.8em; }
+    .weather-header .temp { font-size: 2.1em; font-weight: bold; }
+    .weather-header .desc { font-size: 1.1em; color: #555; }
+    .weather-header .hi-lo { font-size: 0.95em; color: #888; }
+
+    .hourly-bar {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 14px 0 20px;
+    }
+    .hour-block {
+      background: #e1eaf5;
+      border-radius: 5px;
+      padding: 8px 14px;
+      font-size: 1em;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .widgets-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+    .widget {
+      background: #fafafa;
+      border-radius: 6px;
+      padding: 14px;
+      box-shadow: 0 1px 4px #e0e0e0;
+      box-sizing: border-box;
+      flex: 1;
+      min-width: 130px;
+      min-height: 60px;
+    }
+    .forecast, .air-quality, .map {
+      min-height: 150px;
+    }
+    .forecast-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .forecast-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.98em;
+    }
+    .forecast-list li:last-child { border-bottom: none; }
+
+    .widgets-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .widgets-grid .widget { min-width: 80px; }
+
+    .bottom-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .bottom-row .widget { min-width: 80px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div><strong>Saved Locations</strong></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="main">
+      <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button>🔍</button>
+      </div>
+      <div class="weather-header">
+        <h2>Delhi</h2>
+        <div class="temp">28&deg;</div>
+        <div class="desc">Partly Cloud</div>
+        <div class="hi-lo">H: 28&deg; L: 27&deg;</div>
+      </div>
+      <div class="hourly-bar">
+        <div class="hour-block">1AM</div>
+        <div class="hour-block">2AM</div>
+        <div class="hour-block">3AM</div>
+        <div class="hour-block">4AM</div>
+        <div class="hour-block">5AM</div>
+        <div class="hour-block">6AM</div>
+      </div>
+      <div class="widgets-row">
+        <div class="widget forecast">
+          <strong>10 Day Forecast</strong>
+          <ul class="forecast-list">
+            <li>Day 1: --</li>
+            <li>Day 2: --</li>
+            <li>Day 3: --</li>
+            <li>Day 4: --</li>
+            <li>Day 5: --</li>
+            <li>Day 6: --</li>
+            <li>Day 7: --</li>
+            <li>Day 8: --</li>
+            <li>Day 9: --</li>
+            <li>Day 10: --</li>
+          </ul>
+        </div>
+        <div class="widget air-quality"><strong>Air Quality</strong></div>
+        <div class="widget map"><strong>Map</strong></div>
+      </div>
+      <div class="widgets-row">
+        <div class="widget" style="flex:2"><strong>Wind</strong></div>
+        <div class="widgets-grid" style="flex:3">
+          <div class="widget"><strong>UV Index</strong></div>
+          <div class="widget"><strong>Sunrise</strong></div>
+          <div class="widget"><strong>Feels Like</strong></div>
+          <div class="widget"></div>
+        </div>
+      </div>
+      <div class="bottom-row">
+        <div class="widget"><strong>Humidity</strong></div>
+        <div class="widget"><strong>Visibility</strong></div>
+        <div class="widget"><strong>Pressure</strong></div>
+        <div class="widget"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
